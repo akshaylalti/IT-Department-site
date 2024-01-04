@@ -1,0 +1,68 @@
+.it{
+  padding-top: 26vh;
+  margin: 0 7vh 7vh;
+}
+
+.allAbout{
+  margin-top: 7vh;
+}
+
+.parrent{
+  display: flex;
+}
+
+
+.header1{
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+.containt{
+  margin-top: 4vh;
+  margin-right: 8vh;
+  margin-left: 2vh;
+  height: 100%;
+  width: 100%;
+  margin-bottom: 20vh;
+}
+
+p{
+  margin-top: 8vh;
+  margin-bottom: 5vh;
+  text-align: justify !important;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+
+img{
+  width: 10rem;
+  margin-left: 3rem;
+  margin-top: 1rem;
+  border-radius: 1rem;
+}
+
+.card-body{
+  text-align: center;
+}
+h5{
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #302f2f;
+  font-size: medium;
+}
+h6{
+  font-weight: 400;
+}
+
+.line1{
+  display: flex;
+}
+
+
+.line2{
+  display: flex;
+}
+
+.paritosh img{
+  height: 14rem;
+}

@@ -1,0 +1,143 @@
+
+<!-- <button class="btn btn-primary" (click)="signOut()">Logout</button> -->
+<!--
+<ul *ngFor="let user of users">
+  <li>{{user.id}}</li>
+  <li>{{user.firstName}} {{user.lastName}}</li>
+  <li>{{user.aadharNumber}}</li>
+  <li>{{user.email}}</li>
+  <li>{{user.address}}</li>
+</ul>
+
+<hr>
+
+<ul>
+  <li>{{loginUser.firstName}}</li>
+  <li>{{loginUser.lastName}}</li>
+  <li>{{loginUser.email}}</li>
+  <li>{{loginUser.phone}}</li>
+  <li>{{loginUser.nationality}}</li>
+  <li>{{loginUser.dob | date}}</li>
+</ul> -->
+<!-- <ng-container *ngIf="auth.isLoggedIn() == true">
+<p>hello</p>
+</ng-container> -->
+
+<div class="parrent">
+  <div class="main">
+    <div class="logo"><img src="../assets/logo.png" alt=""></div>
+    <hr>
+    <h6>{{loginUser.firstName}} {{loginUser.lastName}}</h6>
+    <hr>
+    <ul>
+      <li><span class="fa-solid fa-house"></span><a href="">Dash Board</a></li>
+      <li><span class="fa-solid fa-user"></span><a href="">My Profile</a></li>
+      <li><span class="fa-solid fa-book"></span><a href="">Admission Fee</a></li>
+      <li><span class="fa-solid fa-book"></span><a href="">Exam Form</a></li>
+      <li><span class="fa-solid fa-hotel"></span><a href="">Hostel</a></li>
+      <li><span class="fa-solid fa-right-to-bracket"></span><button class="" (click)="signOut()">Logout</button></li>
+    </ul>
+  </div>
+
+  <div>
+    <h3>My Profile</h3>
+
+    <div class="card" style="width: 18rem;">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="card-img-top" alt="...">
+      <hr>
+      <div class="card-body">
+        <h5 class="card-title">{{loginUser.firstName}} {{loginUser.lastName}}</h5>
+        <p class="card-text">BACHELOR OF TECHNOLOGY VII SEMESTER(BTECH.VII SEM)</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">420 -- INSTITUTE OF ENGINEERING AND TECHNOLOGY,AYODHYA</li>
+        <li class="list-group-item">Roll No: {{loginUser.id}}</li>
+      </ul>
+    </div>
+
+
+</div>
+<div class="infrastructure">
+  <div class="buttons">
+    <button class="btnPersonal" (click)="Class()">Personal Details</button>
+    <button class="butn" (click)="lab()">Parent's</button>
+    <button class="butn" (click)="Excilence()">Address</button>
+  </div>
+  <hr>
+  <ng-container *ngIf="val1 == true" class="main1"><h5>
+     <div class="main2">
+      <ul class="details">
+        <li>Mobile No.:</li>
+        <li>DOB:</li>
+        <li>Category:</li>
+        <li>Aadhar No.:</li>
+        <li>Domicile:</li>
+        <li>Blood Group:</li>
+        <li>Nationality:</li>
+      </ul>
+      <ul class="datailsData">
+        <li>{{loginUser.phoneNumber}}</li>
+        <li>{{loginUser.dob |date}}</li>
+        <li>{{loginUser.category}}</li>
+        <li>{{loginUser.aadharNumber}}</li>
+        <li>UP</li>
+        <li>AB+</li>
+        <li>{{loginUser.nationality}}</li>
+      </ul>
+      <ul class="details">
+        <li>Email ID:</li>
+        <li>Gender:</li>
+        <li>Sub-Category:</li>
+        <li>Weightage:</li>
+        <li>Mother Tongue:</li>
+        <li>Religion:</li>
+      </ul>
+      <ul class="datailsData">
+        <li>{{loginUser.email}}</li>
+        <li>{{loginUser.gender}}</li>
+        <li>{{loginUser.gender}}</li>
+        <li>N/A</li>
+        <li>68Kg</li>
+        <li>Hindi</li>
+        <li>{{loginUser.religion}}</li>
+      </ul>
+     </div>
+  </h5></ng-container>
+  <ng-container *ngIf="val2==true" >
+    <div class="main2">
+      <ul class="details">
+        <li>Father's Name:</li>
+        <li>Mother's Name:</li>
+        <li>Parent's Income:</li>
+      </ul>
+      <ul class="datailsData">
+        <li>{{loginUser.fatherName}}</li>
+        <li>{{loginUser.motherName}}</li>
+        <li>240000</li>
+      </ul>
+   </div>
+
+  </ng-container>
+  <ng-container *ngIf="val3==true" >
+    <div class="main2">
+      <ul class="details">
+        <li>House No.:</li>
+        <li>Street/Village:</li>
+        <li>Post Office:</li>
+        <li>Pin Code:</li>
+        <li>District/City:</li>
+        <li>State:</li>
+      </ul>
+      <ul class="datailsData">
+        <li>{{loginUser.address}}</li>
+        <li>{{loginUser.address}}</li>
+        <li> {{loginUser.address}}</li>
+        <li>{{loginUser.pinCode}}</li>
+        <li>{{loginUser.city}}</li>
+        <li>{{loginUser.state}}</li>
+      </ul>
+   </div>
+  </ng-container>
+
+</div>
+

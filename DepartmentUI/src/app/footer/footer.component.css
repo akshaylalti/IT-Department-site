@@ -1,0 +1,21 @@
+img{
+  width: 15%;
+  margin-left: 18vh;
+}
+.fab:hover{
+  background-color: #eeddcc;
+  width: 5vh;
+  height: 5vh;
+  padding: 1vh;
+  border-radius: 3vh;
+}
+
+
+.hov:hover{
+  color: #F79432;
+}
+
+.map iframe{
+  width: 190vh;
+  height: 30vh;
+}

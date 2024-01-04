@@ -1,0 +1,232 @@
+<app-header></app-header>
+<form #myForm="ngForm" (ngSubmit)="onSubmit()">
+<section class="h-100 bg-dark">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card card-registration my-4">
+          <div class="row g-0">
+
+            <div class="col-xl-6">
+              <div class="card-body p-md-5 text-black">
+                <h3 class="mb-5 text-uppercase">Student registration form</h3>
+
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline" >
+                      <input type="text" id="form3Example1m" class="form-control form-control-lg" required name="firstName"
+                      [(ngModel)]="formData.firstName" #name="ngModel" [ngClass]="{'invalid-border': name.invalid && (name.dirty || name.touched)}"/>
+                      <div class="text-danger" *ngIf="name.invalid && (name.dirty || name.touched)">*First Name Required</div>
+                      <label class="form-label" for="form3Example1m">First name</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <input type="text" id="form3Example1n" class="form-control
+                       form-control-lg" name="lastName" [(ngModel)]="formData.lastName" />
+                      <label class="form-label" for="form3Example1n">Last name</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <input type="text" id="form3Example1m1" class="form-control form-control-lg"
+                       name="motherName" required [(ngModel)]="formData.motherName" #motherName = "ngModel"
+                        [ngClass]="{'invalid-border': motherName.invalid && (motherName.dirty || motherName.touched)}" />
+                        <div class="text-danger" *ngIf="motherName.invalid && (motherName.dirty || motherName.touched)">*Mother's name Required</div>
+                      <label class="form-label" for="form3Example1m1">Mother's name</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <input type="text" id="form3Example1n1" class="form-control form-control-lg"
+                       name="FatherName" required [(ngModel)]="formData.FatherName" #FatherName = "ngModel"
+                        [ngClass]="{'invalid-border': FatherName.invalid && (FatherName.dirty || FatherName.touched)}"/>
+                        <div class="text-danger" *ngIf="FatherName.invalid && (FatherName.dirty || FatherName.touched)">*Father's name Required</div>
+                      <label class="form-label" for="form3Example1n1">Father's name</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <input type="text" id="form3Example1m1" class="form-control form-control-lg"
+                       name="aadhar" required [(ngModel)]="formData.aadhar" #aadhar = "ngModel"
+                        [ngClass]="{'invalid-border': aadhar.invalid && (aadhar.dirty || aadhar.touched)}" />
+                        <div class="text-danger" *ngIf="aadhar.invalid && (aadhar.dirty || aadhar.touched)">*Aadhar No. Required</div>
+                      <label class="form-label" for="form3Example1m1">Aadhar No.</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <input type="text" id="form3Example1n1" class="form-control form-control-lg"
+                       name="nationality" required [(ngModel)]="formData.nationality" #nationality = "ngModel"
+                        [ngClass]="{'invalid-border': nationality.invalid && (nationality.dirty || nationality.touched)}"/>
+                        <div class="text-danger" *ngIf="nationality.invalid && (nationality.dirty || nationality.touched)">*Nationality Name Required</div>
+                      <label class="form-label" for="form3Example1n1">Nationality</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example8" class="form-control form-control-lg"
+                   name="Address" required [(ngModel)]="formData.Address" #Address="ngModel"
+                   [ngClass]="{'invalid-border': Address.invalid && (Address.dirty || Address.touched)}"/>
+                   <div class="text-danger" *ngIf="Address.invalid && (Address.dirty || Address.touched)">*Address Required</div>
+                  <label class="form-label" for="form3Example8">Address</label>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline" >
+                      <input type="text" id="form3Example1m" class="form-control form-control-lg" required name="city"
+                      [(ngModel)]="formData.city" #city="ngModel" [ngClass]="{'invalid-border': city.invalid && (city.dirty || city.touched)}"/>
+                      <div class="text-danger" *ngIf="city.invalid && (city.dirty || city.touched)">*City Name Required</div>
+                      <label class="form-label" for="form3Example1m">City</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline" >
+                      <input type="text" id="form3Example1m" class="form-control form-control-lg" required name="state"
+                      [(ngModel)]="formData.state" #state="ngModel" [ngClass]="{'invalid-border': state.invalid && (state.dirty || state.touched)}"/>
+                      <div class="text-danger" *ngIf="state.invalid && (state.dirty || state.touched)">*State Name Required</div>
+                      <label class="form-label" for="form3Example1m">State</label>
+                    </div>
+                  </div>
+                </div>
+                                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example90" required #Pincode="ngModel" [ngClass]="{'invalid-border': Pincode.invalid && (Pincode.dirty || Pincode.touched)}"
+                  class="form-control form-control-lg" name="Pincode" [(ngModel)]="formData.Pincode"/>
+                  <div class="text-danger" *ngIf="Pincode.invalid && (Pincode.dirty || Pincode.touched)">*Pincode Required</div>
+                  <label class="form-label" for="form3Example90">Pincode</label>
+                </div>
+                <div class="d-md-flex justify-content-start align-items-center mb-4 py-2" >
+
+                  <h6 class="mb-0 me-4">Gender: </h6>
+
+                  <div class="form-check form-check-inline mb-0 me-4">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
+                      value="female"  [(ngModel)]="formData.Gender"/>
+                    <label class="form-check-label" for="femaleGender">Female</label>
+                  </div>
+
+                  <div class="form-check form-check-inline mb-0 me-4">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
+                      value="male"  [(ngModel)]="formData.Gender" />
+                    <label class="form-check-label" for="maleGender">Male</label>
+                  </div>
+
+                  <div class="form-check form-check-inline mb-0">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
+                      value="other"  [(ngModel)]="formData.Gender" />
+                    <label class="form-check-label" for="otherGender">Other</label>
+                  </div>
+
+                </div>
+
+                <div class="row">
+
+                  <div class="col-md-6 mb-4">
+                    <label for="lang">Category</label>
+                    <select class="select" name="category"
+                    required #category="ngModel" [ngClass]="{'invalid-border': category.invalid && (category.dirty || category.touched)}"
+                    [(ngModel)]="formData.category">
+                      <option value="General">General</option>
+                      <option value="EWS">EWS</option>
+                      <option value="OBC">OBC</option>
+                      <option value="SC">SC</option>
+                      <option value="ST">ST</option>
+                    </select>
+
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <label for="lang">Religion</label>
+                    <select class="select" name="religion"
+                    required #religion="ngModel" [ngClass]="{'invalid-border': religion.invalid && (religion.dirty || religion.touched)}"
+                    [(ngModel)]="formData.religion">
+                      <option value="Hinduism">Hinduism</option>
+                      <option value="Islam">Islam</option>
+                      <option value="Christianity">Christianity</option>
+                      <option value="Sikhism">Sikhism</option>
+                      <option value="Buddhism">Buddhism</option>
+                      <option value="Other">Other</option>
+                    </select>
+
+                  </div>
+                  <div  class="col-md-6 mb-4">
+                    <label for="lang">DOB</label>
+                    <input type="date" id="birthday" name="birthday"
+                    [(ngModel)]="formData.birthday"
+                    required #birthday="ngModel" [ngClass]="{'invalid-border': birthday.invalid && (birthday.dirty || birthday.touched)}"
+                    />
+                  </div>
+
+                </div>
+
+
+
+
+
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example99"
+                  class="form-control form-control-lg" name="Course" #Course="ngModel"
+                  [(ngModel)]="formData.Course" required  [ngClass]="{'invalid-border': Course.invalid && (Course.dirty || Course.touched)}"/>
+                  <div class="text-danger" *ngIf="Course.invalid && (Course.dirty || Course.touched)">*Course Name Required</div>
+                  <label class="form-label" for="form3Example99">Course</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example99" required #specialisations="ngModel" [ngClass]="{'invalid-border': specialisations.invalid && (specialisations.dirty || specialisations.touched)}"
+                  class="form-control form-control-lg"
+                  name="specialisations" [(ngModel)]="formData.specialisations"/>
+                  <div class="text-danger" *ngIf="specialisations.invalid && (specialisations.dirty || specialisations.touched)">*specialisations Name Required</div>
+                  <label class="form-label" for="form3Example99">Specialisations</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example97" required #email="ngModel" [ngClass]="{'invalid-border': email.invalid && (email.dirty || email.touched)}"
+                   class="form-control form-control-lg" name="email" [(ngModel)]="formData.email"/>
+                   <div class="text-danger" *ngIf="email.invalid && (email.dirty || email.touched)">*Email id Required</div>
+                  <label class="form-label" for="form3Example97">Email ID</label>
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example97" required #phone="ngModel" [ngClass]="{'invalid-border': phone.invalid && (phone.dirty || phone.touched)}"
+                   class="form-control form-control-lg" name="phone" [(ngModel)]="formData.phone"/>
+                   <div class="text-danger" *ngIf="phone.invalid && (phone.dirty || phone.touched)">*Phone No. Required</div>
+                  <label class="form-label" for="form3Example97">Phone No.</label>
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example97" required #password="ngModel" [ngClass]="{'invalid-border': password.invalid && (password.dirty || password.touched)}"
+                   class="form-control form-control-lg" name="password" [(ngModel)]="formData.password"/>
+                   <div class="text-danger" *ngIf="password.invalid && (password.dirty || password.touched)">*password Required</div>
+                  <label class="form-label" for="form3Example97">Password</label>
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example97" required #confirmPassword="ngModel" [ngClass]="{'invalid-border': confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)}"
+                   class="form-control form-control-lg" name="confirmPassword" [(ngModel)]="formData.confirmPassword"/>
+                   <div class="text-danger" *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)">*Confirm Password Required</div>
+                  <label class="form-label" for="form3Example97">Confirm Password</label>
+                </div>
+
+                <!-- <div class="form-outline mb-4">
+                  <input type="file" class="form-control" required #image="ngModel" [ngClass]="{'invalid-border': image.invalid && (image.dirty || image.touched)}"
+                   id="customFile" name="image" [(ngModel)]="formData.image"/>
+                   <div class="text-danger" *ngIf="image.invalid && (image.dirty || image.touched)">*First Name Required</div>
+                  <label class="form-label" for="customFile">Upload image</label>
+                </div> -->
+
+                <div class="d-flex justify-content-end pt-3">
+                  <button type="button" class="btn btn-light btn-lg" (click)="reset()">Reset all</button>
+                  <button type="submit" class="btn btn-warning btn-lg ms-2" [disabled]="!myForm.valid">Submit form</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</form>
+<app-footer></app-footer>
