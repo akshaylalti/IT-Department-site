@@ -84,3 +84,4 @@ If you'd like to contribute to this project, please follow our [contribution gui
 
 This project is licensed under the [MIT License](LICENSE).
 ```
+![Home Screen](screenshots/C:\Users\aksha\Desktop\Akshay\portfolio\img\portfolio "Home Screen Screenshot")
