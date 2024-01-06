@@ -77,7 +77,7 @@ The project is organized into the following directories:
   - SQL Server
 ## ScreenShot
 [![MasterHead](https://akshay-kumar93.web.app/img/portfolio/IT.png
-)](https://akshaylalti.io)
+)](https://akshay-kumar93.web.app/)
 
 
 
