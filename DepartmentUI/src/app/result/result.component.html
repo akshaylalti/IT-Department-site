@@ -1,0 +1,95 @@
+<app-header></app-header>
+
+<div class="inp" *ngIf="search == true">
+  <h4 >Search Your Result By Roll Number</h4>
+  <br>
+  <form #myForm="ngForm" (ngSubmit)="onSubmit()" class="form">
+    <div class="input-group mb-3">
+
+      <input type="text" class="form-control" placeholder="Roll No" aria-label="Recipient's username" aria-describedby="basic-addon2" name="Id" [(ngModel)]="credential.Id">
+      <div class="input-group-append">
+        <button class="btn btn-secondary" type="submit" id="basic-addon2">Result</button>
+      </div>
+    </div>
+  </form>
+
+
+</div>
+
+<div class="body" *ngIf="result == true">
+
+  <div class="main">
+      <h3>Provisional MarkSheet</h3>
+      <h3>IET RMLAU</h3>
+      <h2>IT 7th Semester</h2>
+      <div class="info">
+          <p>Program Roll:{{marksheet.id}} </p>
+          <p>Student's name: {{marksheet.firstName}}  {{marksheet.lastName}}</p>
+          <p>Institute: IET RMLAU Ayodhya</p>
+      </div>
+      <table>
+          <tr>
+              <th>Sl</th>
+              <th>Exam Name</th>
+              <th>TH MAX</th>
+              <th>Written Marks</th>
+              <th>Total Obtained Marks</th>
+              <th>Deduction</th>
+              <th>Total Marks</th>
+              <th>Highest Marks</th>
+              <th>BMP</th>
+              <th>CMP</th>
+          </tr>
+          <tr>
+              <td>1</td>
+              <td>Computer Network</td>
+              <td>30/30</td>
+              <td>24/30</td>
+              <td>54</td>
+              <td>0</td>
+              <td>54/60</td>
+              <td>56/60</td>
+              <td>4</td>
+              <td>119</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Cryptography</td>
+            <td>30/30</td>
+            <td>24/30</td>
+            <td>54</td>
+            <td>0</td>
+            <td>54/60</td>
+            <td>56/60</td>
+            <td>4</td>
+            <td>119</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>DBMS</td>
+          <td>30/30</td>
+          <td>24/30</td>
+          <td>54</td>
+          <td>0</td>
+          <td>54/60</td>
+          <td>56/60</td>
+          <td>4</td>
+          <td>119</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>COA</td>
+        <td>30/30</td>
+        <td>24/30</td>
+        <td>54</td>
+        <td>0</td>
+        <td>54/60</td>
+        <td>56/60</td>
+        <td>4</td>
+        <td>119</td>
+    </tr>
+      </table>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -4,8 +4,13 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic;
+using OpenAI_API.Completions;
+using OpenAI_API;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-
 namespace DeparmentAPI.Controllers
 {
     [Route("api/[controller]")]
@@ -15,7 +20,7 @@ namespace DeparmentAPI.Controllers
         private readonly IApplictionRepository _applictionRepository;
         private readonly UserContext _userContext;
 
-        public AccountController(IApplictionRepository applictionRepository,UserContext userContext)
+        public AccountController(IApplictionRepository applictionRepository, UserContext userContext)
         {
             _applictionRepository = applictionRepository;
             _userContext = userContext;
@@ -26,12 +31,25 @@ namespace DeparmentAPI.Controllers
 
         public async Task<IActionResult> SignUp([FromBody] SignInModel model)
         {
-            var result = await _applictionRepository.SignUpAsync(model);
-            if (result.Succeeded)
+            try
             {
-                return Ok(result.Succeeded);
+                var result = await _applictionRepository.SignUpAsync(model);
+                if (result.Succeeded)
+                {
+                    return Ok(result.Succeeded);
+                }
+                //if (string.IsNullOrEmpty(result))
+                //{
+                //    return Ok(result);
+                //}
+            }
+            catch (Exception ex)
+            {
+                return null;
+
             }
             return Unauthorized();
+
         }
 
         [HttpPost("login")]
@@ -51,7 +69,7 @@ namespace DeparmentAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<ApplictionUser>> GetAllUsers()
         {
-            return Ok(await _userContext.SignIn.ToListAsync());
+            return Ok(await _userContext.ApplictionUsers.ToListAsync());
         }
 
         [Authorize]
@@ -62,5 +80,41 @@ namespace DeparmentAPI.Controllers
             var result = await _applictionRepository.GetUserbyIdAsync(id);
             return Ok(result);
         }
+
+        [Authorize]
+        [HttpGet("allStudent")]
+        public async Task<ActionResult<List<ApplictionUser>>> getAllStudent()
+        {
+            var std = await _userContext.ApplictionUsers.ToListAsync();
+            return Ok(std);
+        }
+
+        [HttpGet("result/{id}")]
+        public async Task<IActionResult> getResult([FromRoute] string id)
+        {
+            var result = await _applictionRepository.GetUserbyIdAsync(id);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
+
+        [HttpPut]
+        [Route("UpdateUserDetails")]
+        public async Task<IActionResult> UpdateUserDetails([FromBody] ApplictionUser applictionUser)
+        {
+            var result = await _applictionRepository.UpdateUserDetails(applictionUser);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
+
+
+        //open ai
+       
+
     }
 }

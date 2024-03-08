@@ -5,33 +5,29 @@ import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  credential:any = {};
-  constructor(private route:Router,private auth:AuthService) { }
+  credential: any = {};
+  constructor(private route: Router, private auth: AuthService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  onSubmit(){
-
+  onSubmit() {
     this.auth.logInPost(this.credential).subscribe(
-
-      res=>{
-        alert("login failed")
+      (res) => {
+        alert('login failed');
       },
-      err=>{
-
+      (err) => {
         console.log(err.error.text);
         this.auth.storeToken(err.error.text);
         this.route.navigate(['/dashboard']);
       }
-    )
+    );
     // console.log(this.credential)
   }
 
-  register(){
-    this.route.navigate(['/registration'])
+  register() {
+    this.route.navigate(['/registration']);
   }
 }

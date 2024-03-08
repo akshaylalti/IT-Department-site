@@ -7,13 +7,14 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.IO;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DeparmentAPI.Ripository
 {
-    public class ApplictionRepository:IApplictionRepository
+    public class ApplictionRepository : IApplictionRepository
     {
         private readonly UserManager<ApplictionUser> _userManager;
         private readonly SignInManager<ApplictionUser> _signInManager;
@@ -25,7 +26,7 @@ namespace DeparmentAPI.Ripository
 
         public ApplictionRepository(UserManager<ApplictionUser> userManager,
             SignInManager<ApplictionUser> signInManager, UserContext userContext,
-            IConfiguration configuration,IMapper mapper
+            IConfiguration configuration, IMapper mapper
             )
         {
             _userManager = userManager;
@@ -66,7 +67,16 @@ namespace DeparmentAPI.Ripository
                 UserName = customUserId,
             };
             _counter++;
-            return await _userManager.CreateAsync(user,signInModel.Password );
+            return await _userManager.CreateAsync(user, signInModel.Password);
+            //var response = await _userManager.CreateAsync(user, signInModel.Password);
+            //if (response.Succeeded)
+            //{
+            //    return customUserId;
+            //}
+            //else
+            //{
+            //    return null;
+            //}
         }
 
         public async Task<string> LogInAsync(LoginModel loginModel)
@@ -96,8 +106,53 @@ namespace DeparmentAPI.Ripository
 
         public async Task<ApplictionUser> GetUserbyIdAsync(string UserId)
         {
-            var record = await _userContext.SignIn.FindAsync(UserId);
+            var record = await _userContext.ApplictionUsers.FindAsync(UserId);
             return _mapper.Map<ApplictionUser>(record);
+        }
+        public async Task<ApplictionUser> UpdateUserDetails(ApplictionUser user)
+        {
+            try
+            {
+                var userDetails = _userContext.ApplictionUsers.FirstOrDefault(d => d.Id == user.Id);
+
+                if (userDetails == null)
+                {
+                    return new();
+                }
+
+                userDetails = new ApplictionUser()
+                {
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    MotherName = user.MotherName,
+                    FatherName = user.FatherName,
+                    AadharNumber = user.AadharNumber,
+                    Address = user.Address,
+                    City = user.City,
+                    State = user.State,
+                    Gender = user.Gender,
+                    Category = user.Category,
+                    DOB = user.DOB,
+                    Religion = user.Religion,
+                    Nationality = user.Nationality,
+                    Course = user.Course,
+                    Specialisations = user.Specialisations,
+                    PinCode = user.PinCode,
+                    PhoneNumber = user.PhoneNumber,
+                    Email = user.Email,
+                };
+
+                _userContext.Update(userDetails);
+                _userContext.SaveChanges();
+                return userDetails;
+            }
+            catch (Exception ex)
+            {
+                return new();
+            }
+
+
+
         }
     }
 }

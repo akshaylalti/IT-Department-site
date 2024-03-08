@@ -8,6 +8,7 @@ namespace DeparmentAPI.Model
         public UserContext(DbContextOptions<UserContext> options)
             : base(options) { }
         public DbSet<FileModel> Files { get; set; }
-        public DbSet<ApplictionUser> SignIn { get; set; }
+        public DbSet<ApplictionUser> ApplictionUsers { get; set; }
+        public DbSet<RMLUUsers> RMLUUsers { get; set; }
     }
 }

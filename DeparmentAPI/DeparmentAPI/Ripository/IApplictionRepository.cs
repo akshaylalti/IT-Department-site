@@ -8,7 +8,9 @@ namespace DeparmentAPI.Ripository
     public interface IApplictionRepository
     {
         Task<IdentityResult> SignUpAsync(SignInModel signInModel);
-         Task<string> LogInAsync(LoginModel loginModel);
+        //Task<string> SignUpAsync(SignInModel signInModel);
+        Task<string> LogInAsync(LoginModel loginModel);
         Task<ApplictionUser> GetUserbyIdAsync(string UserId);
+        Task<ApplictionUser> UpdateUserDetails(ApplictionUser user);
     }
 }

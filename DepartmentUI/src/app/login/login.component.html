@@ -1,5 +1,5 @@
 <app-header></app-header>
-<form #myForm = "ngForm" (ngSubmit)="onSubmit()" >
+<form #myForm="ngForm" (ngSubmit)="onSubmit()">
   <section class="h-100 gradient-form" style="background-color: #eee;">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -10,41 +10,44 @@
                 <div class="card-body p-md-5 mx-md-4">
 
                   <div class="text-center">
-                    <img src="../assets/fav.png"
-                      style="width: 185px;" alt="logo">
+                    <img src="../assets/fav.png" style="width: 185px;" alt="logo">
                     <h4 class="mt-1 mb-5 pb-1">IET AYODHYA</h4>
                   </div>
 
-                    <p>Please login to your account</p>
+                  <p>Please login to your account</p>
 
-                    <div class="form-outline mb-4">
-                      <input type="email" id="form2Example11" class="form-control"
-                        placeholder="Roll No." name="Id" [(ngModel)]="credential.Id" required #Id="ngModel" [ngClass]="{'invalid-border': Id.invalid && (Id.dirty || Id.touched)}"/>
-                   <div class="text-danger" *ngIf="Id.invalid && (Id.dirty || Id.touched)">*Roll No. Required</div>
-                   <label class="form-label" for="form2Example11" >Roll No.</label>
-                    </div>
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form2Example11">Roll No.</label>
+                    <input type="text" id="form2Example11" class="form-control" placeholder="Roll No." name="Id"
+                      [(ngModel)]="credential.Id" required #Id="ngModel"
+                      [ngClass]="{'invalid-border': Id.invalid && (Id.dirty || Id.touched)}" />
+                    <div class="text-danger" *ngIf="Id.invalid && (Id.dirty || Id.touched)">*Roll No. Required</div>
+                  </div>
 
-                    <div class="form-outline mb-4">
-                      <input type="password" id="form2Example22" class="form-control"
-                       placeholder="Password" name="password"
-                       [(ngModel)]="credential.password"
-                       required #password="ngModel" [ngClass]="{'invalid-border': password.invalid && (password.dirty || password.touched)}"
-                       />
-                       <div class="text-danger" *ngIf="password.invalid && (password.dirty || password.touched)">*password Required</div>
-                      <label class="form-label" for="form2Example22">Password</label>
-                    </div>
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form2Example22">Password</label>
+                    <input type="password" id="form2Example22" class="form-control" placeholder="Password"
+                      name="password" [(ngModel)]="credential.password" required #password="ngModel"
+                      [ngClass]="{'invalid-border': password.invalid && (password.dirty || password.touched)}" />
+                    <div class="text-danger" *ngIf="password.invalid && (password.dirty || password.touched)">*password
+                      Required</div>
+                  </div>
 
-                    <div class="text-center pt-1 mb-5 pb-1">
-                      <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" [disabled]="!myForm.valid">Log
-                        in</button>
-                        <br>
-                      <a class="text-muted" href="#!">Forgot password?</a>
-                    </div>
+                  <div class="text-center pt-1 mb-5 pb-1">
+                    <!-- <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit"
+                      [disabled]="!myForm.valid">Log
+                      in</button> -->
+                      <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit"
+                      >Log
+                      in</button>
+                    <br>
+                    <a class="text-muted" href="#!">Forgot password?</a>
+                  </div>
 
-                    <div class="d-flex align-items-center justify-content-center pb-4">
-                      <p class="mb-0 me-2">Don't have an account?</p>
-                      <button type="submit" class="btn btn-outline-danger" (click)="register()">Registration</button>
-                    </div>
+                  <div class="d-flex align-items-center justify-content-center pb-4">
+                    <p class="mb-0 me-2">Don't have an account?</p>
+                    <button type="submit" class="btn btn-outline-danger" (click)="register()">Registration</button>
+                  </div>
 
 
                 </div>
@@ -52,8 +55,9 @@
               <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
                 <div class="text-white px-3 py-4 p-md-5 mx-md-4">
                   <h4 class="mb-4">Dr. Rammanohar Lohia Avadh University, Ayodhya</h4>
-                  <div  class="small mb-0"><h5>Hostel Warden</h5>
-                   <h6> Ahilya Bai Holker mahila hostel</h6>Dr. Geetika Srivastava
+                  <div class="small mb-0">
+                    <h5>Hostel Warden</h5>
+                    <h6> Ahilya Bai Holker mahila hostel</h6>Dr. Geetika Srivastava
 
                     <h6>Ahilya Bai Holker mahila hostel</h6>Dr. Pallavi Soni & Er. Kriti Srivastava
 
@@ -61,7 +65,8 @@
 
                     <h6>Saryu Boys Hostel </h6>Dr. Rana Rohit Singh-9839016560
 
-                    <h6>Lavkush Boys Hostel</h6>Prof. Shailendra Kumar Verma-9415183089</div>
+                    <h6>Lavkush Boys Hostel</h6>Prof. Shailendra Kumar Verma-9415183089
+                  </div>
                 </div>
               </div>
             </div>

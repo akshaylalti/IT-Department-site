@@ -19,6 +19,9 @@ import { AchievementComponent } from './it/achievement/achievement.component';
 import { AchedmicComponent } from './it/achedmic/achedmic.component';
 import { ImportantLinksComponent } from './it/important-links/important-links.component';
 import { GalleryComponent } from './it/gallery/gallery.component';
+import { ResultComponent } from './result/result.component';
+import { DepartmentLoginComponent } from './department-login/department-login.component';
+import { PaymentComponent } from './payment/payment.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
 { path: 'view-more', component: ParrentComponent },
@@ -37,7 +40,10 @@ const routes: Routes = [
 { path: 'acedmic', component:AchedmicComponent },
 { path: 'important', component:ImportantLinksComponent },
 { path: 'gallary', component:GalleryComponent },
-{path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard]}
+{path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard]},
+{path:'result',component:ResultComponent},
+{path:'departLogin', component:DepartmentLoginComponent},
+{path:'payment', component:PaymentComponent}
 ];
 
 @NgModule({

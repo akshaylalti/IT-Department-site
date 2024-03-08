@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -30,6 +29,11 @@ import { HappeningsComponent } from './it/happenings/happenings.component';
 import { ResearchComponent } from './it/research/research.component';
 import { AchedmicComponent } from './it/achedmic/achedmic.component';
 import { WhyIetComponent } from './why-iet/why-iet.component';
+import { ResultComponent } from './result/result.component';
+import { AdminComponent } from './admin/admin.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { DepartmentLoginComponent } from './department-login/department-login.component';
+import { PaymentComponent } from './payment/payment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,14 +59,19 @@ import { WhyIetComponent } from './why-iet/why-iet.component';
     HappeningsComponent,
     ResearchComponent,
     AchedmicComponent,
-    WhyIetComponent
+    WhyIetComponent,
+    ResultComponent,
+    AdminComponent,
+    DepartmentLoginComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [AuthService,
     {

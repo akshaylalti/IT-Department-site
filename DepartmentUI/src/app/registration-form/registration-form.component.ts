@@ -5,25 +5,29 @@ import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-registration-form',
   templateUrl: './registration-form.component.html',
-  styleUrls: ['./registration-form.component.css']
+  styleUrls: ['./registration-form.component.css'],
 })
 export class RegistrationFormComponent implements OnInit {
-  formData:any={};
-  constructor(private route:Router,private auth:AuthService) { }
+  formData: any = {};
+  constructor(private route: Router, private auth: AuthService) {}
 
-  ngOnInit(): void {
-  }
-  onSubmit(){
+  ngOnInit(): void {}
+  onSubmit() {
+    debugger;
     this.auth.postData(this.formData).subscribe(
-      res=>{console.log(res)},
-      err=>{console.log(err)}
-    )
-    alert("Submitted sucesfully");
+      (res) => {
+        alert('Submitted sucesfully and user Id:' + res);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+
     this.formData = {};
-    this.route.navigate(['/view-more'])
+    this.route.navigate(['/view-more']);
   }
 
-  reset(){
+  reset() {
     this.formData = {};
   }
 }

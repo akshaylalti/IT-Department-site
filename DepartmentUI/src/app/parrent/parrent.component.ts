@@ -49,4 +49,12 @@ export class ParrentComponent implements OnInit {
     this.student=false;
     this.alumnis=true;
   }
+
+  Department(){
+    this.route.navigate(['/departLogin'])
+  }
+
+  result(){
+    this.route.navigate(['/result'])
+  }
 }
